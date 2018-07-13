@@ -91,46 +91,88 @@
 				  <ul class="picList">
             <li>
               <div class="pic">
-                <a href="/anli/" target="_parent">
+                <a href="http://localhost:8080/#/case" target="_parent">
                   <img src="../../assets/image/case1.jpg">
                 </a>
               </div>					
             </li>
             <li>
               <div class="pic">
-                <a href="/anli/" target="_parent">
+                <a href="http://localhost:8080/#/case" target="_parent">
                   <img src="../../assets/image/case1.jpg">
                 </a>
               </div>					
             </li>
             <li>
               <div class="pic">
-                <a href="/anli/" target="_parent">
+                <a href="http://localhost:8080/#/case" target="_parent">
                   <img src="../../assets/image/case2.jpg">
                 </a>
               </div>					
             </li>
             <li>
               <div class="pic">
-                <a href="/anli/" target="_parent">
+                <a href="http://localhost:8080/#/case" target="_parent">
                   <img src="../../assets/image/case2.jpg">
                 </a>
               </div>					
             </li>
             <li>
               <div class="pic">
-                <a href="/anli/" target="_parent">
+                <a href="http://localhost:8080/#/case" target="_parent">
                   <img src="../../assets/image/case3.jpg">
                 </a>
               </div>					
             </li>
             <li>
               <div class="pic">
-                <a href="/anli/" target="_parent">
+                <a href="http://localhost:8080/#/case" target="_parent">
                   <img src="../../assets/image/case3.jpg">s
                 </a>
               </div>					
-            </li>			 
+            </li>	
+                        <li>
+              <div class="pic">
+                <a href="http://localhost:8080/#/case" target="_parent">
+                  <img src="../../assets/image/case1.jpg">
+                </a>
+              </div>					
+            </li>
+            <li>
+              <div class="pic">
+                <a href="http://localhost:8080/#/case" target="_parent">
+                  <img src="../../assets/image/case1.jpg">
+                </a>
+              </div>					
+            </li>
+            <li>
+              <div class="pic">
+                <a href="http://localhost:8080/#/case" target="_parent">
+                  <img src="../../assets/image/case2.jpg">
+                </a>
+              </div>					
+            </li>
+            <li>
+              <div class="pic">
+                <a href="http://localhost:8080/#/case" target="_parent">
+                  <img src="../../assets/image/case2.jpg">
+                </a>
+              </div>					
+            </li>
+            <li>
+              <div class="pic">
+                <a href="http://localhost:8080/#/case" target="_parent">
+                  <img src="../../assets/image/case3.jpg">
+                </a>
+              </div>					
+            </li>
+            <li>
+              <div class="pic">
+                <a href="http://localhost:8080/#/case" target="_parent">
+                  <img src="../../assets/image/case3.jpg">s
+                </a>
+              </div>					
+            </li>			 		 
 			   	</ul>
 			  </div>
         <div class="case_more">
@@ -180,6 +222,19 @@
     computed:{
       swiper(){ //实例化swiper
         return this.$refs.mySwiper.swiper
+      }
+    },
+    mounted(){
+      var num=0;
+      var picList=document.getElementsByClassName('picList')[0];
+      var t=setInterval(move,100);
+      function move(){
+         num+=5;
+         picList.style.right=num+'px';
+         if(num>=2080){
+           num=0
+         }
+        //  picList.style.animation='2s ease'
       }
     }
   }

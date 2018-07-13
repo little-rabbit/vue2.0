@@ -14,13 +14,21 @@
         <a href="##">{{datas[num].title}}</a>
     </div>
     <div class="center" v-for='(item,index) in datas' :key=index v-if='index==num'>
-        <div class="text" v-for='(item_produce,index) in item.produce' :key=index>
+        <div class="text" @click='show_produce(index)'  v-for='(item_produce,index) in item.produce' :key=index>
           <p class='img'>
             <img :src='item_produce.img' alt="">
           </p>
            <p class='text_contain'>{{item_produce.text1}}</p>
-        </div>
-        
+        </div>  
+    </div>
+    <div class="show_case" v-if='show_'>
+       <div class="shows">
+         <div class='top'>
+           <h4>{{datas[num].produce[num].text1}}</h4>
+           <button @click='hid_'>X</button>
+         </div>
+         <img :src="datas[num].produce[num].img" alt="">
+       </div>
     </div>
   </div>
 </template>
@@ -60,12 +68,21 @@ export default {
          ]
          },
         ],
-      num:0
+      num:0,
+      show_case:'',
+      show_:false
     }
   },
   methods:{
     selected(index){
       this.num=index;
+    },
+    show_produce(index){
+      this.show_case=index;
+      this.show_=true;
+    },
+    hid_(){
+      this.show_=false;
     }
   }
 }

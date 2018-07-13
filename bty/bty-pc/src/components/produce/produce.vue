@@ -9,8 +9,8 @@
     </div> 
     <div class="location">
         当前所在位置>
-        <a href="http://localhost:8080/#/">首页</a>>
-        <a href="http://localhost:8080/#/produce">品牌产品</a>>
+        <a href="http://localhost:8080/#/">首页</a>
+        <a href="http://localhost:8080/#/produce">品牌产品</a>
         <a href="##">{{datas[num].title}}</a>
     </div>
     <div class="center" v-for='(item,index) in datas' :key=index v-if='index==num'>
@@ -21,11 +21,15 @@
            <p>{{item_produce.text1}}</p>
         </div>
     </div>
-    <!-- <div class="show_pro">
+    <div class="show_pro" v-if='show_'>
        <div class="shows">
-           {{datas[num].text1}}
+         <div class='top'>
+           <h4>{{datas[num].produce[show_pro].text1}}</h4>
+           <button @click='hid_'>X</button>
+         </div>
+         <img :src="datas[num].produce[show_pro].img" alt="">
        </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -39,27 +43,33 @@ export default {
          produce:[
           {
             text1:'B·T·Y-JS-19',
-            img:require('../../assets/image/produce1_1.jpg')
+            img:require('../../assets/image/produce1_1.jpg'),
+            
           },
           {
             text1:'B·T·Y-JS-18',
-            img:require('../../assets/image/produce1_2.jpg')
+            img:require('../../assets/image/produce1_2.jpg'),
+            
           },
           {
             text1:'B·T·Y-JS-17',
-            img:require('../../assets/image/produce1_3.jpg')
+            img:require('../../assets/image/produce1_3.jpg'),
+        
           },
           {
             text1:'B·T·Y-JS-16',
-            img:require('../../assets/image/produce1_4.jpg')
+            img:require('../../assets/image/produce1_4.jpg'),
+           
           },
           {
             text1:'B·T·Y-JS-15',
-            img:require('../../assets/image/produce1_5.jpg')
+            img:require('../../assets/image/produce1_5.jpg'),
+           
           },
           {
             text1:'B·T·Y-JS-14',
-            img:require('../../assets/image/produce1_6.jpg')
+            img:require('../../assets/image/produce1_6.jpg'),
+           
             }
           ]
         },
@@ -252,16 +262,22 @@ export default {
          ]
         }, 
       ],
-      num:0
+      num:0,
+      show_pro:'',
+      show_:false
     }
   },
   methods:{
     selected(index){
       this.num=index;
+    },
+    show_produce(index){
+      this.show_pro=index;
+      this.show_=true;
+    },
+    hid_(){
+      this.show_=false;
     }
-    // show_produce(index){
-
-    // }
   }
 }
 </script>

@@ -16,6 +16,8 @@ export default {
     Head, Foot
   }
 }
+
+
 </script>
 
 <style>
